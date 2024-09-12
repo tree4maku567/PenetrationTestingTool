@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penetration Testing Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function showLoading() {
+            document.getElementById("loading").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Penetration Testing Tool</h1>
+        </header>
+        <main>
+            <section class="form-section">
+                <form action="/scan" method="post" onsubmit="showLoading()">
+                    <div class="form-group">
+                        <label for="target_ip">Enter Target IP Address:</label>
+                        <input type="text" id="target_ip" name="target_ip" required placeholder="e.g. 192.168.1.1">
+                    </div>
+                    <button type="submit">Scan</button>
+                </form>
+                <div id="loading" class="loading">Scanning, please wait...</div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

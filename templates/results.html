@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Scan Results</h1>
+        </header>
+        <main>
+            <section class="status-section">
+                <p class="status">{{ results['progress'][-1] }}</p>
+            </section>
+
+            <section class="results-section">
+                {% if results['scan_results'] %}
+                    <h2>Open Ports</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Host</th>
+                                <th>Port</th>
+                                <th>Name</th>
+                                <th>Product</th>
+                                <th>Version</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in results['scan_results'] %}
+                            <tr>
+                                <td>{{ result['host'] }}</td>
+                                <td>{{ result['port'] }}</td>
+                                <td>{{ result['name'] }}</td>
+                                <td>{{ result['product'] }}</td>
+                                <td>{{ result['version'] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No open ports found.</p>
+                {% endif %}
+
+                <h2>Vulnerabilities</h2>
+                {% if results['vulnerabilities'] %}
+                    <ul>
+                        {% for port, vuln in results['vulnerabilities'].items() %}
+                        <li>Port {{ port }}: {{ vuln }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No vulnerabilities found.</p>
+                {% endif %}
+            </section>
+
+            <footer>
+                <p><a href="/">Back to Home</a></p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
