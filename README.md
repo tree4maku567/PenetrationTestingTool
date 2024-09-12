@@ -11,7 +11,7 @@ This is a simple cybersecurity tool I developed for penetration testing. It scan
 **Getting Started:**
 - Clone the repository to your server with: `git clone https://github.com/Red-Blink/PenetrationTestingTool.git`
 - Navigate to the directory with: `cd PenetrationTestingTool`
-- Start the app by running: `python3 -m app`
+- Start the app by running: `sudo python3 -m app`
 - Open a web browser and go to `http://PUBLIC_IP:5000`
 
 **Notes:**
