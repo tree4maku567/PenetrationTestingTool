@@ -1,12 +1,12 @@
 # Penetration Testing Tool
 
+This is a simple cybersecurity tool I developed for penetration testing. It scans a specified host for active services and their versions, then cross-references these with the Metasploit database to identify potential vulnerabilities. It's designed for ease of use and provides essential insights for security assessments.
+
 **Requirements:**
 - Python
 - Nmap
 - Metasploit
 - Flask
-
-This tool performs basic penetration testing by scanning a specified host to identify running services and their versions. It then cross-references these findings with the Metasploit database to check for potential vulnerabilities.
 
 **Installation:**
 - Clone the repository to your server with: `git clone https://github.com/Red-Blink/PenetrationTestingTool.git`
